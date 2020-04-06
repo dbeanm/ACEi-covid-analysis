@@ -1,0 +1,12 @@
+﻿Patient,ctx,document_description,drug,end,mentioned,negated,start,Date,group,brand name of,notes,review
+1,this is where the surrounding text would normall be for review,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,,
+1,the context (CTX) is not included here,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,,
+1,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,,
+2,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,,
+2,this example was considered excluded in manual review,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,,exclude
+2,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,,
+3,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,,
+3,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,,
+3,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,,
+4,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,,
+4,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,,
