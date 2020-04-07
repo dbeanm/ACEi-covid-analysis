@@ -5,7 +5,7 @@
 
 ## Overview
 Run logistic regressions for ACEi exposure and outcome. The starting point for this code assumes you have all the
-outputs for the schema below for the manual annotation, structured data, MedCAT and DrugPipeline steps. Scripts
+outputs for the schema below for the manual annotation, structured data, MedCAT and DrugPipeline steps which can be as separate files as in the demo folder. Scripts
 here will merge and analyse those separate files. Demo data is in /demo. This is entirely random data and is not derived
 from any real data, it is only to represent the file formats.
 
