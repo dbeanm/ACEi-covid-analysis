@@ -2,7 +2,6 @@
 
 #TODO
 * penalised LR in R
-* add name field to schema table that is as used in code
 
 ## Overview
 Run logistic regressions for ACEi exposure and outcome. The starting point for this code assumes you have all the
