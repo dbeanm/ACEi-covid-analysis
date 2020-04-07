@@ -1,8 +1,6 @@
 # ACEi Analysis
 
 #TODO
-* add check for notes / clinical note in window and ever
-* require at least one medication order or text note in window in exclusions
 * penalised LR in R
 * add name field to schema table that is as used in code
 
@@ -28,23 +26,21 @@ Sources:
 
 Variable | type | Notes | Source
 --- | --- | --- | ---
-Age | int | Age at sx | Structured |
+Age | int | Age at sx, converted to 10 year increments for regression | Structured |
 Male | bool | | Structured |
-history of hypertension | bool | | MedCAT |
-history of diabetes | bool | | MedCAT |
-history of ischaemic heart disease or heart failure | bool | | MedCAT |
-Medication group 1: presence in Orders or Clinical Notes of the following Ibuprofen and all NSAID (e.g. Diclofenac, Naproxen) | bool | TRUE if any of these taken in study period | DrugPipeline |
-Medication group 2: presence in Orders or Clinical Notes of the following drugs Ramipril, Perindopril, Lisinopril, Enalapril, Captopril, Quinapril, Imidapril, Fosinopril, Trandolapril | bool | TRUE if any of these taken in study period | DrugPipeline |
-Medication group 3: presence in Orders or Clinical Notes of the following drugs Candesartan, Irbesartan, Losartan, Olmesartan, telmisartan, Valsartan | bool | TRUE if any of these taken in study period | DrugPipeline |
-Sx date | date | | Manual |
-ITU date | date | | Manual |
+hypertension | bool | history of hypertension | MedCAT |
+diabetes | bool | history of diabetes | MedCAT |
+ischaemic heart disease or heart failure | bool | history of ischaemic heart disease or heart failure | MedCAT |
+On NSAID | bool | Medication group 1: presence in Orders or Clinical Notes of the following Ibuprofen and all NSAID (e.g. Diclofenac, Naproxen). TRUE if any of these taken in study period | DrugPipeline |
+On ACE inhibitor | bool | Medication group 2: presence in Orders or Clinical Notes of the following drugs Ramipril, Perindopril, Lisinopril, Enalapril, Captopril, Quinapril, Imidapril, Fosinopril, Trandolapril. TRUE if any of these taken in study period | DrugPipeline |
+On ARB | bool | Medication group 3: presence in Orders or Clinical Notes of the following drugs Candesartan, Irbesartan, Losartan, Olmesartan, telmisartan, Valsartan. TRUE if any of these taken in study period | DrugPipeline |
+Sx Date | date | | Manual |
+ITU Date | date | | Manual |
 Death Date | date | | Manual |
 Medication order data in study period | bool | This is from structured data on in-hospital medication orders | Structured |
 Any document in study period | bool | Discharge summary, A&E GP letter, clinical note | Structured |
 Any clinical notes in study period | bool | Clinical notes only | Structured |
 
-
-## Schema for regressions
 
 
 ## Demo data

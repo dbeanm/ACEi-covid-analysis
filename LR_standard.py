@@ -37,7 +37,7 @@ def analyse(factors, data, significance_level = 0.05, add_constant = True):
     print(or_ci)
     return or_ci
 
-outs = pd.read_csv("outcomes_dataset_analysed.csv")
+outs = pd.read_csv("output/outcomes_dataset_for_analysis.csv")
 age_col = 'Age (per 10 years)'
 
 
@@ -78,4 +78,4 @@ m3['Model'] = "ACE+HTN"
 
 
 res = pd.concat([m1a, m1b, m2a, m2b, m3, m4, m5], axis=0)
-res.to_csv("ACE2_LR_standard.csv")
+res.to_csv("output/ACE2_LR_standard.csv")

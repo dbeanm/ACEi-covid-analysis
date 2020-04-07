@@ -15,6 +15,7 @@ identifier = 'Patient'
 outs = pd.read_csv("demo/demographics_and_outcomes.csv")
 meds_file = "demo/medications_reviewed.csv"
 medcat_file = "demo/medcat_pt2cuis.json"
+documents_file = "demo/documents.csv"
 endpoint_window_days = 7
 drug_pre_admission_window_days = 7
 latest_data = pd.to_datetime("2020-03-31") # so we can detect pt whose 7 day window has not elapsed
@@ -47,6 +48,11 @@ outs['Ended'] = outs[['Endpoint date reached', 'Endpoint outcome reached']].any(
 
 outs.set_index(identifier, inplace=True)
 
+#age
+age_col = 'Age (per 10 years)'
+outs[age_col] = outs['Age']/10
+outs[age_col] = outs[age_col].astype(int)
+
 # =============================================================================
 # preprocess meds
 # =============================================================================
@@ -69,6 +75,8 @@ p['updatetime date'] = pd.to_datetime(p['Date'], format='%d/%m/%Y')
 p['doc_after_start'] = p['updatetime date'] >= p['Medication inclusion start']
 p['doc_before_end'] = p['updatetime date'] <= p['Medication inclusion end']
 p['doc_included'] = p[['doc_before_end', 'doc_after_start']].all(axis=1)
+#this is to check that we have structured data coming through on this patient
+#whether or not the order is for a drug we're interested in
 any_med_order_included = p[p['doc_included'] == True].index.unique()
 outs['has_any_med_order_in_window'] = [x in any_med_order_included for x in outs.index]
 
@@ -156,6 +164,42 @@ outs[comorb_list] = outs[comorb_list].fillna(False)
 
 
 # =============================================================================
+# link to documents file
+# =============================================================================
+all_docs = pd.read_csv(documents_file)
+all_docs[identifier] = all_docs[identifier].astype(str)
+all_docs.set_index(identifier, inplace=True)
+all_docs['updatetime'] = pd.to_datetime(all_docs['updatetime'], format='%d/%m/%Y')
+
+docs_outs = all_docs.join(outs, how='inner')
+docs_outs['doc_after_start'] = docs_outs['updatetime'] >= docs_outs['Medication inclusion start']
+docs_outs['doc_before_end'] = docs_outs['updatetime'] <= docs_outs['Medication inclusion end']
+docs_outs['doc_included'] = docs_outs[['doc_before_end', 'doc_after_start']].all(axis=1)
+docs_outs['document_description'] = docs_outs['document_description'].str.lower()
+
+docs_included = docs_outs[docs_outs['doc_included'] == True]
+has_docs = docs_included.index.nunique()
+has_cn = docs_included[docs_included['document_description'] == 'clinical note'].index.nunique()
+has_status = outs.index.nunique()
+
+print(has_docs,"/",has_status,"patients have any docs in window")
+print(has_cn,"/",has_status,"patients have clinical notes")
+
+id_with_doc = docs_included.index.unique()
+id_with_doc_ever = docs_outs.index.unique()
+id_with_cn = docs_included[docs_included['document_description'] == 'clinical note chunk'].index.unique()
+outs['has_any_doc'] = [x in id_with_doc_ever for x in outs.index]
+outs['has_any_doc_in_window'] = [x in id_with_doc for x in outs.index]
+outs['has_clinical_note'] = [x in id_with_cn for x in outs.index]
+
+# =============================================================================
+# any data in window
+# =============================================================================
+outs['any_data_in_window'] = outs[['has_any_doc_in_window', 'has_any_med_order_in_window']].any(axis=1)
+print("patients with any data in window")
+print(outs['any_data_in_window'].value_counts())
+
+# =============================================================================
 # prepare dataset
 # =============================================================================
 ## save a copy of everything before exclusions
@@ -164,6 +208,7 @@ outs.to_csv("output/outcomes_dataset_full.csv")
 print("before exclusions,", outs.shape[0], 'patients total')
 outs = outs[outs['Age'] > 1]
 outs = outs[outs['has_annotations'] == True]
+outs = outs[outs['any_data_in_window']]
 
 #require study window ended
 outs = outs[outs['Ended'] == True]
