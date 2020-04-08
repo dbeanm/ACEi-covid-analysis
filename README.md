@@ -1,4 +1,12 @@
 # ACEi Analysis
+## NOTE
+This schema and code are for the our [preprint](https://www.researchgate.net/publication/340261837_Treatment_with_ACE-inhibitors_is_not_associated_with_early_severe_SARS-Covid-19_infection_in_a_multi-site_UK_acute_Hospital_Trust?channel=doi&linkId=5e806057a6fdcc139c10467a&showFulltext=true) but
+we are now also collecting:
+* Ethnicity
+* 14 day outcomes
+* discharge date
+
+And will use these in ongoing analysis. Schema and code will be updated here.
 
 #TODO
 * penalised LR in R
