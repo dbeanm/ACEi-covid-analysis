@@ -16,9 +16,9 @@ outs = pd.read_csv("demo/demographics_and_outcomes.csv")
 meds_file = "demo/medications_reviewed.csv"
 medcat_file = "demo/medcat_pt2cuis.json"
 documents_file = "demo/documents.csv"
-endpoint_window_days = 7
-drug_pre_admission_window_days = 7
-latest_data = pd.to_datetime("2020-03-31") # so we can detect pt whose 7 day window has not elapsed
+endpoint_window_days = 21
+drug_pre_admission_window_days = 21
+latest_data = pd.to_datetime("2020-03-31") # so we can detect pt whose 21 day window has not elapsed
 
 # =============================================================================
 # Preprocessing outcomes file
@@ -110,7 +110,6 @@ print(drug_counts)
 on_drug = meds_included[identifier].unique()
 
 # link outcome to meds
-outs['On Drug'] = [x in on_drug for x in outs.index]
 gr = meds_included.groupby('group')
 for name, group in gr:
     n = "On " + name
@@ -159,7 +158,7 @@ como_df.set_index(identifier, inplace=True)
 
 
 outs = outs.join(como_df, how='left')
-comorb_list = ['hypertension','diabetes','ischaemic heart disease or heart failure']
+comorb_list = comos_table['group'].unique().tolist()
 outs[comorb_list] = outs[comorb_list].fillna(False)
 
 

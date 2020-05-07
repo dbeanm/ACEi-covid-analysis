@@ -1,50 +1,10 @@
 ﻿cui,name,group
-S-414545008,Ischemic heart disease (disorder),ischaemic heart disease or heart failure
-S-44054006,Diabetes mellitus type 2 (disorder),diabetes
-S-230572002,Neuropathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-111552007,Diabetes mellitus without complication (disorder),diabetes
-S-237599002,Insulin treated type 2 diabetes mellitus (disorder),diabetes
-S-190447002,Steroid-induced diabetes (disorder),diabetes
-S-127013003,Disorder of kidney co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-312912001,Macular edema co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-312904009,Moderate nonproliferative retinopathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-312903003,Mild nonproliferative retinopathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-390834004,Nonproliferative retinopathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-4855003,Retinopathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-46635009,Diabetes mellitus type 1 (disorder),diabetes
-S-11687002,Gestational diabetes mellitus (disorder),diabetes
-S-49455004,Polyneuropathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-714628002,Prediabetes (finding),diabetes
-S-39058009,Lumbosacral radiculoplexus neuropathy co-occurrent and due to diabetes mellitus (disorder),diabetes
-S-420422005,Ketoacidosis in diabetes mellitus (disorder),diabetes
-S-405749004,Newly diagnosed diabetes (finding),diabetes
-S-15771004,Diabetes insipidus (disorder),diabetes
-S-38341003,"Hypertensive disorder, systemic arterial (disorder)",hypertension
-S-34742003,Portal hypertension (disorder),hypertension
-S-234072000,Venous hypertension (disorder),hypertension
-S-70995007,Pulmonary hypertension (disorder),hypertension
-S-70272006,Malignant hypertension (disorder),hypertension
-S-1110081000000100,Primary ocular hypertension (disorder),hypertension
-S-11399002,Pulmonary hypertensive arterial disease (disorder),hypertension
-S-50490005,Hypertensive encephalopathy (disorder),hypertension
-S-4210003,Ocular hypertension (disorder),hypertension
-S-38481006,Hypertensive renal disease (disorder),hypertension
-S-303082009,Portal hypertensive gastropathy (disorder),hypertension
-S-59621000,Essential hypertension (disorder),hypertension
-S-68267002,Benign intracranial hypertension (disorder),hypertension
-S-84114007,Heart failure (disorder),ischaemic heart disease or heart failure
-S-42343007,Congestive heart failure (disorder),ischaemic heart disease or heart failure
-S-128404006,Right heart failure (disorder),ischaemic heart disease or heart failure
-S-418304008,Diastolic heart failure (disorder),ischaemic heart disease or heart failure
-S-85232009,Left heart failure (disorder),ischaemic heart disease or heart failure
-S-92506005,Biventricular congestive heart failure (disorder),ischaemic heart disease or heart failure
-S-390884006,Heart failure follow-up (finding),ischaemic heart disease or heart failure
-S-48447003,Chronic heart failure (disorder),ischaemic heart disease or heart failure
-S-194828000,Angina (disorder),ischaemic heart disease or heart failure
-S-241154007,Abdominal angina (disorder),ischaemic heart disease or heart failure
-S-371807002,Atypical angina (disorder),ischaemic heart disease or heart failure
-S-394659003,Acute coronary syndrome (disorder),ischaemic heart disease or heart failure
-S-53741008,Coronary arteriosclerosis (disorder),ischaemic heart disease or heart failure
-S-22298006,Myocardial infarction (disorder),ischaemic heart disease or heart failure
-S-414795007,Myocardial ischemia (disorder),ischaemic heart disease or heart failure
-S-233928007,Myocardial dysfunction (disorder),ischaemic heart disease or heart failure
+Any: COPD,COPD,COPD
+Any: Asthma,Asthma,Asthma
+Any: HF,HF,HF
+Any: Diabetes,Diabetes,Diabetes
+Any: IHD,IHD,IHD
+Any: HTN,HTN,HTN
+Any: CKD,CKD,CKD
+Any: Stroke,Stroke,Stroke/TIA
+Any: TIA,TIA,Stroke/TIA

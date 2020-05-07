@@ -40,42 +40,39 @@ def analyse(factors, data, significance_level = 0.05, add_constant = True):
 outs = pd.read_csv("output/outcomes_dataset_for_analysis.csv")
 age_col = 'Age (per 10 years)'
 
+# =============================================================================
+# combine some comorbidities, rename some columns
+# =============================================================================
+outs['ACEi'] = outs['On ACE inhibitor']
+outs['ARB'] = outs['On ARB']
+outs['On ACEi or ARB'] = outs[['On ACE inhibitor', 'On ARB']].any(axis=1)
+outs['Statin'] = outs['On Statin']
+outs['Beta-blocker'] = outs['On Beta-blocker']
+outs['HF or IHD'] = outs[['IHD', 'HF']].any(axis=1)
 
-#ACEi  
-factors = ['On ACE inhibitor']
-m1a = analyse(factors, outs)
-m1a['Model'] = "Baseline"
-     
-factors = ['On ACE inhibitor',age_col, 'Male' ]
-m2a = analyse(factors, outs)
-m2a['Model'] = "Model 1"
 
-factors = ['On ACE inhibitor',age_col, 'Male', 'hypertension' ]
-m4 = analyse(factors, outs)
-m4['Model'] = "Model 2"
+# =============================================================================
+# run analysis
+# =============================================================================
+
+factors = ['On ACEi or ARB']
+baseline = analyse(factors, outs)
+baseline['Model'] = "Baseline"
+
+factors = ['On ACEi or ARB',age_col, 'Male' ]
+m1 = analyse(factors, outs)
+m1['Model'] = "Model 1"
+
+
+factors = ['On ACEi or ARB',age_col, 'Male', 'HTN' ]
+m2 = analyse(factors, outs)
+m2['Model'] = "Model 2"
 
 #all comos
-factors = ['On ACE inhibitor',age_col, 'Male', 'hypertension', 'diabetes', 'ischaemic heart disease or heart failure' ]
-m5 = analyse(factors, outs)
-m5['Model'] = "Model 3"
-
-#htn
-factors = ['hypertension' ]
-m1b = analyse(factors, outs)
-m1b['Model'] = "Hypertension unadjusted"
-
-
-factors = [age_col, 'Male', 'hypertension' ]
-m2b = analyse(factors, outs)
-m2b['Model'] = "Hypertension adjusted"
-
-
-#ACEi + htn
-#not in paper
-factors = ['On ACE inhibitor', 'hypertension' ]     
+factors = ['On ACEi or ARB',age_col, 'Male', 'HTN', 'Diabetes', 'HF or IHD', 'CKD' ]
 m3 = analyse(factors, outs)
-m3['Model'] = "ACE+HTN"
+m3['Model'] = "Model 3"
 
 
-res = pd.concat([m1a, m1b, m2a, m2b, m3, m4, m5], axis=0)
+res = pd.concat([baseline, m1, m2, m3], axis=0)
 res.to_csv("output/ACE2_LR_standard.csv")
