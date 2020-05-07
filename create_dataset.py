@@ -60,7 +60,7 @@ meds = pd.read_csv(meds_file)
 meds[identifier] = meds[identifier].astype(str)
 meds_keep = ['Clinical Note', 'Medication', "A&E GP Letter", "Discharge Notification"]
 meds = meds[meds['document_description'].isin(meds_keep)]
-meds = meds[meds['review'].isna()]
+meds = meds[~meds['allergic']] #exclude NLP detected allergy
 
 prescriptions = pd.read_csv('demo/medication_orders.csv')
 prescriptions[identifier] = prescriptions[identifier].astype(str)

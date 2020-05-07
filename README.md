@@ -34,6 +34,7 @@ Sources:
   * Available [here](https://github.com/CogStack/MedCAT).
 * DrugPipeline
   * Available [here](https://github.com/dbeanm/DrugPipeline).
+  * For allergy detection v0.2+ needed
 
 Variable | type | Notes | Source
 --- | --- | --- | ---
@@ -118,7 +119,7 @@ Files in /demo are random data designed to follow the same formats as DrugPipeli
 The MedCAT output is already aggregated to patient level as this step is performed by our trained
 MedCAT model (the pt2cuis.json output file). This file also has our concept groupings applied (see below) so some CUI are replaced by group names e.g. "Any: Diabetes" meaning at least one of the specific concepts in our diabetes group was detected.
 
-The demo data is very likely to give strange results, it's only there to show file formats and check that code runs. 
+The demo data is very likely to give strange results, it's only there to show file formats and check that code runs.
 
 ## MedCAT comorbidities
 We use concept groups to extract comorbidities with MedCAT. The groups used are in /demo:

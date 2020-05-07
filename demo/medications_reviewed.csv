@@ -1,40 +1,40 @@
-﻿Patient,ctx,document_description,drug,end,mentioned,negated,start,Date,group,brand name of,notes,review
-1,this is where the surrounding text would normall be for review,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,,
-1,the context (CTX) is not included here,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,,
-1,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,,
-2,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,,
-2,this example was considered excluded in manual review,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,,exclude
-2,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,,
-3,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,,
-3,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,,
-3,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,,
-4,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,,
-4,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,,
-6,,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,,
-6,,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,,
-6,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,,
-7,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,,
-7,,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,,
-7,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,,
-8,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,,
-8,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,,
-8,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,,
-9,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,,
-9,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,,
-11,,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,,
-11,,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,,
-11,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,,
-12,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,,
-12,this example was considered excluded in manual review,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,,exclude
-12,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,,
-13,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,,
-13,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,,
-13,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,,
-14,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,,
-15,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,,
-5,,Medication,Candesartan,,TRUE,FALSE,,05/01/2020,ARB,Candesartan,,
-5,,Medication,Candesartan,,TRUE,FALSE,,05/01/2020,ARB,Candesartan,,
-5,,Medication,Candesartan,,TRUE,FALSE,,05/01/2020,ARB,Candesartan,,
-14,,Medication,Olmesartan,,TRUE,FALSE,,04/01/2020,ARB,Olmesartan,,
-14,,A&E GP Letter,Atorvastatin,,TRUE,FALSE,,04/01/2020,Statin,Atorvastatin,,
-14,,A&E GP Letter,Acebutolol,,TRUE,FALSE,,04/01/2020,Beta-blocker,Acebutolol,,
+﻿Patient,ctx,document_description,drug,end,mentioned,negated,start,Date,group,brand name of,allergic
+1,this is where the surrounding text would normall be for review,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,FALSE
+1,the context (CTX) is not included here,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,FALSE
+1,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,FALSE
+2,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,FALSE
+2,this example wasdetected as an allergy,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,TRUE
+2,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,FALSE
+3,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,FALSE
+3,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,FALSE
+3,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,FALSE
+4,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,FALSE
+4,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,FALSE
+6,,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,FALSE
+6,,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,FALSE
+6,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,FALSE
+7,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,FALSE
+7,,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,FALSE
+7,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,FALSE
+8,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,FALSE
+8,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,FALSE
+8,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,FALSE
+9,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,FALSE
+9,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,FALSE
+11,,Clinical Note,Ramipril,130,TRUE,FALSE,100,02/01/2020,ACE inhibitor,Ramipril,FALSE
+11,,Medication,Ramipril,30,TRUE,FALSE,0,03/01/2020,ACE inhibitor,Ramipril,FALSE
+11,,A&E GP Letter,Losartan,330,TRUE,FALSE,300,02/11/2019,ARB,Losartan,FALSE
+12,,Clinical Note,Ibuprofen,430,TRUE,FALSE,400,05/01/2020,NSAID,Ibuprofen,FALSE
+12,,A&E GP Letter,Ramipril,40,TRUE,FALSE,10,09/01/2020,ACE inhibitor,Ramipril,FALSE
+12,,Clinical Note,Ramipril,60,TRUE,FALSE,30,05/01/2020,ACE inhibitor,Ramipril,FALSE
+13,,Medication,Ibuprofen,30,TRUE,FALSE,0,06/01/2020,NSAID,Ibuprofen,FALSE
+13,this example would normally be considered negated by the pipeline but was included,A&E GP Letter,Losartan,462,TRUE,TRUE,432,07/01/2020,ARB,Losartan,FALSE
+13,,A&E GP Letter,Ramipril,153,TRUE,FALSE,123,08/01/2020,ACE inhibitor,Ramipril,FALSE
+14,,Medication,Naproxen,30,TRUE,FALSE,0,09/01/2020,NSAID,Naproxen,FALSE
+15,,Medication,Naproxen,30,TRUE,FALSE,0,10/01/2020,NSAID,Naproxen,FALSE
+5,,Medication,Candesartan,,TRUE,FALSE,,05/01/2020,ARB,Candesartan,FALSE
+5,,Medication,Candesartan,,TRUE,FALSE,,05/01/2020,ARB,Candesartan,FALSE
+5,,Medication,Candesartan,,TRUE,FALSE,,05/01/2020,ARB,Candesartan,FALSE
+14,,Medication,Olmesartan,,TRUE,FALSE,,04/01/2020,ARB,Olmesartan,FALSE
+14,,A&E GP Letter,Atorvastatin,,TRUE,FALSE,,04/01/2020,Statin,Atorvastatin,FALSE
+14,,A&E GP Letter,Acebutolol,,TRUE,FALSE,,04/01/2020,Beta-blocker,Acebutolol,FALSE
