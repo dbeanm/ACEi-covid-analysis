@@ -11,7 +11,7 @@ And will use these in ongoing analysis. Schema and code will be updated here. Th
 
 ## Overview
 ## Aim
-Run logistic regressions for ACEi exposure and outcome.
+Run logistic regressions for ACEi/ARB exposure and outcome.
 
 ## Summary
 The starting point for this code assumes you have all the
