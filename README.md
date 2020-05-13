@@ -64,6 +64,7 @@ Note HF and IHD are combined for the regression.
 
 ## Drug groups
 The drug list used for DrugPipeline is in demo/ace2_drugs.csv. Nb we do not use brand names in the KCH analysis. 
+
 ### NSAID
 Ibuprofen and all NSAID (e.g. Diclofenac, Naproxen)
 
@@ -116,11 +117,14 @@ Timolol
 
 
 ## Demo data
-Files in /demo are random data designed to follow the same formats as DrugPipeline and MedCAT outputs.
+Files in /demo are random data designed to follow the same formats as DrugPipeline and MedCAT outputs. The demo data is very likely to give strange results, it's only there to show file formats and check that code runs.
+
+### Comorbidities
 The MedCAT output is already aggregated to patient level as this step is performed by our trained
 MedCAT model (the pt2cuis.json output file). This file also has our concept groupings applied (see below) so some CUI are replaced by group names e.g. "Any: Diabetes" meaning at least one of the specific concepts in our diabetes group was detected.
 
-The demo data is very likely to give strange results, it's only there to show file formats and check that code runs.
+### Drugs
+The output of DrugPipeline as per the pipeline demo. Text mentions and structured data are processed separately to allow sensitivity analysis comparing results with either source alone. 
 
 ## MedCAT comorbidities
 We use concept groups to extract comorbidities with MedCAT. The groups used are in /demo:
