@@ -1,0 +1,14 @@
+Date,Patient,allergic,ctx,document_description,drug,end,mentioned,negated,start,group,brand name of
+01/01/2020,1,False,RAMIPRIL,Medication,Ramipril,8,True,False,0,ACE inhibitor,Ramipril
+01/01/2020,1,False,RAMIPRIL,Medication,Ramipril,8,True,False,0,ACE inhibitor,Ramipril
+10/11/2019,2,False,IBUPROFEN,Medication,Ibuprofen,9,True,False,0,NSAID,Ibuprofen
+01/01/2020,6,False,RAMIPRIL,Medication,Ramipril,8,True,False,0,ACE inhibitor,Ramipril
+01/01/2020,6,False,RAMIPRIL,Medication,Ramipril,8,True,False,0,ACE inhibitor,Ramipril
+10/11/2019,7,False,IBUPROFEN,Medication,Ibuprofen,9,True,False,0,NSAID,Ibuprofen
+01/01/2020,11,False,RAMIPRIL,Medication,Ramipril,8,True,False,0,ACE inhibitor,Ramipril
+01/01/2020,11,False,RAMIPRIL,Medication,Ramipril,8,True,False,0,ACE inhibitor,Ramipril
+10/11/2019,12,False,IBUPROFEN,Medication,Ibuprofen,9,True,False,0,NSAID,Ibuprofen
+05/01/2020,5,False,CANDESARTAN,Medication,Candesartan,11,True,False,0,ARB,Candesartan
+05/01/2020,5,False,CANDESARTAN,Medication,Candesartan,11,True,False,0,ARB,Candesartan
+05/01/2020,5,False,CANDESARTAN,Medication,Candesartan,11,True,False,0,ARB,Candesartan
+04/01/2020,14,False,OLMESARTAN,Medication,Olmesartan,10,True,False,0,ARB,Olmesartan

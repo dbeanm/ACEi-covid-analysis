@@ -13,7 +13,6 @@ from datetime import timedelta
 
 identifier = 'Patient'
 outs = pd.read_csv("demo/demographics_and_outcomes.csv")
-meds_file = "demo/medications_reviewed.csv"
 medcat_file = "demo/medcat_pt2cuis.json"
 documents_file = "demo/documents.csv"
 endpoint_window_days = 21
@@ -53,15 +52,88 @@ age_col = 'Age (per 10 years)'
 outs[age_col] = outs['Age']/10
 outs[age_col] = outs[age_col].astype(int)
 
-# =============================================================================
-# preprocess meds
-# =============================================================================
-meds = pd.read_csv(meds_file)
-meds[identifier] = meds[identifier].astype(str)
-meds_keep = ['Clinical Note', 'Medication', "A&E GP Letter", "Discharge Notification"]
-meds = meds[meds['document_description'].isin(meds_keep)]
-meds = meds[~meds['allergic']] #exclude NLP detected allergy
 
+# =============================================================================
+# Medications - placeholder
+# =============================================================================
+drugs = pd.read_csv('demo/ace2_drugs.csv')
+all_drug_groups = drugs['group'].unique().tolist()
+for name in all_drug_groups:
+    outs["Order for " + name + " held"] = None
+    outs["Order for " + name] = None
+    outs["Order for " + name + ' count'] = None
+    outs["Mention for " + name + " held"] = None
+    outs["Mention for " + name] = None
+    outs["Mention for " + name + ' count'] = None
+    outs["On " + name] = None
+
+# =============================================================================
+# NLP - structured orders
+# =============================================================================
+meds_order = pd.read_csv("demo/nlp_prescriptions_all_mentions.csv")
+meds_order[identifier] = meds_order[identifier].astype(str)
+
+meds_order.set_index(meds_order[identifier], inplace=True)
+
+meds_order['start'] = pd.to_datetime(meds_order['Date'], format='%d/%m/%Y')
+meds_order = meds_order.join(outs, how='left')
+
+meds_order = meds_order.reset_index(drop=True) # need a unique undex later for idxmax
+order_after_start = meds_order['start'] >= meds_order['Medication inclusion start']
+order_before_end = meds_order['start'] <= meds_order['Medication inclusion end']
+start_in_window = order_after_start & order_before_end
+meds_order = meds_order[start_in_window]
+
+gr = meds_order.groupby('group')
+for name, group in gr:
+    n = "Order for " + name
+    on = group[identifier].unique()
+    outs[n] = [x in on for x in outs.index]
+    n_mentions = group[identifier].value_counts()
+    nn = "Order for " + name + " count"
+    outs[nn] = n_mentions
+
+# =============================================================================
+# NLP - free text
+# =============================================================================
+meds_docs = pd.read_csv("demo/nlp_docs_all_mentions.csv")
+meds_docs[identifier] = meds_docs[identifier].astype(str)
+
+meds_docs_keep = ['Clinical Note', "A&E GP Letter", "Discharge Summary"]
+meds_docs = meds_docs[meds_docs['document_description'].isin(meds_docs_keep)]
+meds_docs['updatetime date'] = pd.to_datetime(meds_docs['updatetime'], format='%d/%m/%Y')
+
+meds_docs.set_index(meds_docs[identifier], inplace=True)
+meds_docs = meds_docs.join(outs, how='left')
+
+doc_after_start = meds_docs['updatetime date'] >= meds_docs['Medication inclusion start']
+doc_before_end = meds_docs['updatetime date'] <= meds_docs['Medication inclusion end']
+doc_in_window = doc_after_start & doc_before_end
+meds_docs = meds_docs[doc_in_window]
+
+#remove allergy mentions
+meds_docs = meds_docs[~meds_docs['allergic']]
+gr = meds_docs.groupby(['group'])
+for name, group in gr:
+    n = "Mention for " + name
+    on = group[identifier].unique()
+    outs[n] = [x in on for x in outs.index]
+    n_mentions = group[identifier].value_counts()
+    nn = "Mention for " + name + " count"
+    outs[nn] = n_mentions
+
+# =============================================================================
+# Net medication status
+# =============================================================================
+for name in all_drug_groups:
+    n1 = "Mention for " + name
+    n2 = "Order for " + name
+    on_dr = outs[[n1, n2]].any(axis=1)
+    outs['On ' + name] = on_dr
+    
+# =============================================================================
+# Check for presence of any structured order
+# =============================================================================
 prescriptions = pd.read_csv('demo/medication_orders.csv')
 prescriptions[identifier] = prescriptions[identifier].astype(str)
 
@@ -80,44 +152,7 @@ p['doc_included'] = p[['doc_before_end', 'doc_after_start']].all(axis=1)
 any_med_order_included = p[p['doc_included'] == True].index.unique()
 outs['has_any_med_order_in_window'] = [x in any_med_order_included for x in outs.index]
 
-## medications within range from NLP
-print("have", meds.shape[0],'positive mentions of meds')
-print("for", meds.index.nunique(), 'patients')
 
-meds.set_index(identifier, inplace=True)
-meds = meds.join(outs, how='inner')
-
-print("have", meds.shape[0],'positive mentions of meds after join to outcomes')
-print("for", meds.index.nunique(), 'patients')
-
-meds['updatetime date'] = pd.to_datetime(meds['Date'], format='%d/%m/%Y')
-meds['doc_after_start'] = meds['updatetime date'] >= meds['Medication inclusion start']
-meds['doc_before_end'] = meds['updatetime date'] <= meds['Medication inclusion end']
-meds['doc_included'] = meds[['doc_before_end', 'doc_after_start']].all(axis=1)
-meds['document_description'] = meds['document_description'].str.lower()
-print(meds['doc_included'].sum(),"medication mentions in date range")
-
-
-meds_included = meds[meds['doc_included'] == True].copy()
-meds_included[identifier] = meds_included.index
-meds_included.reset_index(drop=True, inplace=True)
-gr = meds_included.groupby(['drug'])
-
-drug_counts = gr[identifier].nunique().sort_values(ascending=False)
-print("unique patients with drug mentions in window")
-print(drug_counts)
-
-on_drug = meds_included[identifier].unique()
-
-# link outcome to meds
-gr = meds_included.groupby('group')
-for name, group in gr:
-    n = "On " + name
-    on = group[identifier].unique()
-    outs[n] = [x in on for x in outs.index]
-    n_mentions = group[identifier].value_counts()
-    nn = "On " + name + " count"
-    outs[nn] = n_mentions
 
 # =============================================================================
 # join to comorbidities from medcat

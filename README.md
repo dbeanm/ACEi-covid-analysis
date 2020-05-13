@@ -63,6 +63,7 @@ Any clinical notes in study period | bool | Clinical notes only | Structured |
 Note HF and IHD are combined for the regression.
 
 ## Drug groups
+The drug list used for DrugPipeline is in demo/ace2_drugs.csv. Nb we do not use brand names in the KCH analysis. 
 ### NSAID
 Ibuprofen and all NSAID (e.g. Diclofenac, Naproxen)
 

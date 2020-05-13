@@ -1,4 +1,4 @@
-﻿Date,Order Name,Patient,Order Type
+﻿Date,Order Name,Patient,document_description
 01/01/2020,Ramipril,1,Medication
 01/01/2020,Ramipril,1,Medication
 03/01/2020,another drug,1,Medication

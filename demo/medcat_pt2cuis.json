@@ -12,7 +12,7 @@
 "11": ["Any: COPD", "Any: CKD"],
 "12":["Any: COPD", "Any: HF"],
 "13":["Any: HTN"],
-"14":["Any: Diabetes", "Any: Stroke"],
+"14":["Any: Diabetes", "Any: Stroke", "Any: HTN"],
 "15":["S-i-have-anns-but-none-are-relevant","S-something-else"]
 
 }

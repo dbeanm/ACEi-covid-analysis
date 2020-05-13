@@ -1,0 +1,11 @@
+Patient,allergic,ctx,document_description,drug,end,mentioned,negated,start,updatetime,group,brand name of
+1,False," MATTIS ULTRICIES NON IN DIAM IBUPROFEN. VIVAMUS NISL SAPIEN, PLACERA",Clinical Note,Ibuprofen,111,True,False,102,01/01/2020,NSAID,Ibuprofen
+1,True,R ADIPISCING ELIT. ALLERGIES: LOSARTAN,A&E GP Letter,Losartan,76,True,False,68,05/01/2020,ARB,Losartan
+2,False,"SECTETUR ADIPISCING ELIT. DHX RAMIPRIL, ALLERGIES: SIMVASTATIN",Discharge Summary,Ramipril,69,True,False,61,01/11/2019,ACE inhibitor,Ramipril
+2,True,"LIT. DHX RAMIPRIL, ALLERGIES: SIMVASTATIN",Discharge Summary,Simvastatin,93,True,False,82,01/11/2019,Statin,Simvastatin
+9,False, ADIPISCING ELIT. ALSO TAKING CANDESARTAN,Clinical Note,Candesartan,88,True,False,77,07/01/2020,ARB,Candesartan
+9,False,"DIPISCING ELIT. DHX RAMIPRIL, IBUPROFEN, SIMVASTATIN",Discharge Summary,Ibuprofen,80,True,False,71,07/01/2020,NSAID,Ibuprofen
+9,False,"SECTETUR ADIPISCING ELIT. DHX RAMIPRIL, IBUPROFEN, SIMVASTATIN",Discharge Summary,Ramipril,69,True,False,61,07/01/2020,ACE inhibitor,Ramipril
+9,False,"LIT. DHX RAMIPRIL, IBUPROFEN, SIMVASTATIN",Discharge Summary,Simvastatin,93,True,False,82,07/01/2020,Statin,Simvastatin
+10,False,SECTETUR ADIPISCING ELIT. DHX RAMIPRIL. NKDA. NO ALLERGY.,Clinical Note,Ramipril,69,True,False,61,11/01/2020,ACE inhibitor,Ramipril
+11,False, ELIT. UT AT ARCU A EX MATTIS SIMVASTATIN ULTRICIES NON IN DIAM. VIVAMU,Clinical Note,Simvastatin,91,True,False,80,01/01/2020,Statin,Simvastatin

@@ -1,0 +1,76 @@
+﻿drug,group,brand name of
+Ibuprofen,NSAID,Ibuprofen
+Ramipril,ACE inhibitor,Ramipril
+Tritace,ACE inhibitor,Ramipril
+Altace,ACE inhibitor,Ramipril
+Perindopril,ACE inhibitor,Perindopril
+Coversyl,ACE inhibitor,Perindopril
+Lisinopril,ACE inhibitor,Lisinopril
+Zestril,ACE inhibitor,Lisinopril
+Enalapril,ACE inhibitor,Enalapril
+Innovace,ACE inhibitor,Enalapril
+Captopril,ACE inhibitor,Captopril
+Noyada,ACE inhibitor,Captopril
+Quinapril,ACE inhibitor,Quinapril
+Accupro,ACE inhibitor,Quinapril
+Imidapril,ACE inhibitor,Imidapril
+Tanatril,ACE inhibitor,Imidapril
+Fosinopril,ACE inhibitor,Fosinopril
+trandolapril,ACE inhibitor,trandolapril
+Candesartan,ARB,Candesartan
+Amias,ARB,Candesartan
+Irbesartan,ARB,Irbesartan
+Aprovel,ARB,Irbesartan
+Ifirmasta,ARB,Irbesartan
+Losartan,ARB,Losartan
+Cozaar,ARB,Losartan
+Olmesartan,ARB,Olmesartan
+Olmetec,ARB,Olmesartan
+telmisartan,ARB,telmisartan
+Micardis,ARB,telmisartan
+Tolura,ARB,telmisartan
+Valsartan,ARB,Valsartan
+Diovan,ARB,Valsartan
+Diclofenac,NSAID,Diclofenac
+Naproxen,NSAID,Naproxen
+celecoxib,NSAID,celecoxib
+mefenamic acid,NSAID,mefenamic acid
+etoricoxib,NSAID,etoricoxib
+indomethacin,NSAID,indomethacin
+Atorvastatin,Statin,Atorvastatin
+Fluvastatin,Statin,Fluvastatin
+Lovastatin,Statin,Lovastatin
+Pravastatin,Statin,Pravastatin
+Rosuvastatin,Statin,Rosuvastatin
+Simvastatin,Statin,Simvastatin
+Acebutolol,Beta-blocker,Acebutolol
+Alprenolol,Beta-blocker,Alprenolol
+Atenolol,Beta-blocker,Atenolol
+Betaxolol,Beta-blocker,Betaxolol
+Bevantolol,Beta-blocker,Bevantolol
+Bisoprolol,Beta-blocker,Bisoprolol
+Bopindolol,Beta-blocker,Bopindolol
+Bupranolol,Beta-blocker,Bupranolol
+Carteolol,Beta-blocker,Carteolol
+Carvedilol,Beta-blocker,Carvedilol
+Celiprolol,Beta-blocker,Celiprolol
+Cloranolol,Beta-blocker,Cloranolol
+Epanolol,Beta-blocker,Epanolol
+Esatenolol,Beta-blocker,Esatenolol
+Esmolol,Beta-blocker,Esmolol
+Labetalol,Beta-blocker,Labetalol
+Landiolol,Beta-blocker,Landiolol
+Levobunolol,Beta-blocker,Levobunolol
+Mepindolol,Beta-blocker,Mepindolol
+Metoprolol,Beta-blocker,Metoprolol
+Nadolol,Beta-blocker,Nadolol
+Nebivolol,Beta-blocker,Nebivolol
+Oxprenolol,Beta-blocker,Oxprenolol
+Penbutolol,Beta-blocker,Penbutolol
+Pindolol,Beta-blocker,Pindolol
+Practolol,Beta-blocker,Practolol
+Propranolol,Beta-blocker,Propranolol
+Sotalol,Beta-blocker,Sotalol
+Talinolol,Beta-blocker,Talinolol
+Tertatolol,Beta-blocker,Tertatolol
+Timolol,Beta-blocker,Timolol
